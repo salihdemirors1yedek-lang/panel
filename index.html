@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S_DEMIRORZ_INTEL_DB</title>
+    <style>
+        body { background: #000; color: #00FF41; font-family: 'Courier New', monospace; margin: 0; overflow: hidden; height: 100vh; }
+        #terminal { padding: 25px; font-size: 13px; line-height: 1.6; }
+        .red { color: #FF0000; text-shadow: 0 0 5px #FF0000; }
+        .white { color: #fff; }
+        .blink { animation: blinker 0.8s linear infinite; }
+        @keyframes blinker { 50% { opacity: 0; } }
+        
+        #main-content { 
+            display: none; 
+            text-align: center; 
+            border: 1px solid #00FF41; 
+            margin: 10vh auto; 
+            width: 85%; 
+            max-width: 400px;
+            padding: 25px; 
+            box-shadow: 0 0 20px #00FF41; 
+            background: rgba(0, 20, 0, 0.9);
+        }
+
+        .btn-access {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: 1px solid #00FF41;
+            background: transparent;
+            color: #00FF41;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-access:hover {
+            background: #00FF41;
+            color: #000;
+            box-shadow: 0 0 15px #00FF41;
+        }
+    </style>
+</head>
+<body>
+    <div id="terminal"></div>
+    
+    <div id="main-content">
+        <h2 class="blink">ERİŞİM ONAYLANDI</h2>
+        <p style="font-size: 12px; color: #888;">AUTHORIZED PERSONNEL ONLY</p>
+        <hr style="border: 0.5px solid #00FF41; margin: 15px 0;">
+        
+        <div style="text-align: left; font-size: 14px;">
+            <p>> OPERATOR: <span class="white">SALİH DEMİRÖRZ</span></p>
+            <p>> SECURITY: <span class="white">LEVEL 9 (ENCRYPTED)</span></p>
+            <p>> DATABASE: <span class="white">REDACTED_LOGS.DB</span></p>
+            <p>> SESSION: <span class="white">ACTIVE</span></p>
+        </div>
+
+        <a href="https://www.instagram.com/salihdemirorz" class="btn-access">SİSTEME GİRİŞ YAP</a>
+        
+        <p style="margin-top: 20px; font-size: 10px; color: #f00;">UYARI: TÜM İŞLEMLER KAYIT ALTINDADIR.</p>
+    </div>
+
+    <script>
+        const logs = [
+            "> Root yetkisi sorgulanıyor...",
+            "> Proxy zinciri kuruluyor (127.0.0.1 -> 185.92.xx.xx)",
+            "> Veri tabanı şifresi çözülüyor: [********]",
+            "> SSL Sertifikası doğrulandı.",
+            "> Kullanıcı: SALİH_DEMİRÖRZ tanındı.",
+            "> Gizli oturum başlatılıyor...",
+            "> YÜKLENİYOR: %100",
+            "---------------------------------------"
+        ];
+
+        let i = 0;
+        const terminal = document.getElementById('terminal');
+
+        function typeLog() {
+            if (i < logs.length) {
+                terminal.innerHTML += logs[i] + "<br>";
+                i++;
+                setTimeout(typeLog, 350);
+            } else {
+                setTimeout(() => {
+                    terminal.style.display = 'none';
+                    document.getElementById('main-content').style.display = 'block';
+                }, 800);
+            }
+        }
+        typeLog();
+    </script>
+</body>
+</html>
